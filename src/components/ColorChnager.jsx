@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ColorChanger = () => {
-  const [bgColor, setBgColor] = useState('bg-blue-500');
+  const [bgColor, setBgColor] = useState("bg-blue-500");
 
   const changeToRed = () => {
-    setBgColor('bg-red-500');
+    setBgColor("bg-red-500");
   };
 
   const changeToGreen = () => {
-    setBgColor('bg-green-500');
+    setBgColor("bg-green-500");
   };
 
   const changeToYellow = () => {
-    setBgColor('bg-yellow-500');
+    setBgColor("bg-yellow-500");
   };
 
   return (

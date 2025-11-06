@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const BgColor = () => {
   const [color, setColor] = useState("yellow");
 
-
   return (
     <div>
       <nav className="">
