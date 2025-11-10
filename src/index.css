@@ -15,9 +15,9 @@ body::-webkit-scrollbar {
 }
 
 @layer utilities {
-    .custom-scrollbar-hide {
+    /* .custom-scrollbar-hide {
         scrollbar-width: none;
-    }
+    } */
     .custom-scrollbar-hide::-webkit-scrollbar {
         display: none;
     }
@@ -32,7 +32,7 @@ body::-webkit-scrollbar {
     }
 
     .custom-scrollbar-style::-webkit-scrollbar-thumb {
-        background-color: rgba(10, 28, 184, 0.3); 
+        background-color: rgba(26, 4, 155, 0.3); 
         border-radius: 1rem;
         border: 2px solid #f1f1f1;
     }

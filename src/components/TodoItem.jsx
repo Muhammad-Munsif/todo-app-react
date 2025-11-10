@@ -10,7 +10,7 @@ const TodoItem = ({ todo, deleteTodo, toggleComplete, editTodo }) => {
     setIsEditing(false);
   };
   return (
-    <div className="flex items-center md:flex-row justify-between flex-wrap gap-2 p-4 bg-white border border-gray-200 rounded-lg shadow-sm overflow-x-hidden">
+      <div className="flex items-center md:flex-row justify-between flex-wrap gap-2 p-4 bg-white border border-gray-200 rounded-lg shadow-sm overflow-x-hidden">
       {isEditing ? (
         <input
           type="text"
@@ -55,6 +55,8 @@ const TodoItem = ({ todo, deleteTodo, toggleComplete, editTodo }) => {
           Delete
         </button>
       </div>
+
+      
     </div>
   );
 };
