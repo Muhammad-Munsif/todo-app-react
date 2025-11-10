@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const TodoItem = ({ todo, deleteTodo, toggleComplete, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
-  
+
   const handleEditSave = () => {
     if (editText.trim() && editText !== todo.id) {
       editTodo(todo.id, editText.trim());
