@@ -1,1 +1,54 @@
 @import "tailwindcss";
+/* Add this section to your index.css */
+/* Ensure the html and body elements don't show the default scrollbar */
+
+html {
+    /* Hide scrollbar in WebKit browsers (Chrome, Safari, newer Edge) */
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+body {
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+    
+    /* Remove default margin to prevent unwanted scroll space */
+    margin: 0;
+}
+
+/* Re-apply the WebKit hiding property to body just in case */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+@layer utilities {
+    /* 1. HIDE NATIVE SCROLLBAR (for all elements with this class) */
+    .custom-scrollbar-hide {
+        /* Firefox */
+        scrollbar-width: none;
+    }
+    .custom-scrollbar-hide::-webkit-scrollbar {
+        /* Chrome, Safari, Edge */
+        display: none;
+    }
+
+    /* 2. STYLE CUSTOM SCROLLBAR (for elements that DO scroll) */
+    .custom-scrollbar-style::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+    }
+
+    .custom-scrollbar-style::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Light track background */
+        border-radius: 10px;
+    }
+
+    .custom-scrollbar-style::-webkit-scrollbar-thumb {
+        background-color: #4f46e5; /* Tailwind's indigo-600 for the thumb */
+        border-radius: 10px;
+        border: 2px solid #f1f1f1; /* Padding around the thumb */
+    }
+
+    .custom-scrollbar-style::-webkit-scrollbar-thumb:hover {
+        background-color: #3730a3; /* Darker indigo on hover */
+    }
+}
