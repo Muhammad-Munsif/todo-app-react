@@ -10,12 +10,12 @@ const TodoApp = () => {
 
   const handleTodo = () => {
     if (input.trim() === "") {
-//       return;
-//     }
-// // A few changes in the code 
-// const trimmedInput = input.trim();
+      //       return;
+      //     }
+      // // A few changes in the code
+      // const trimmedInput = input.trim();
 
-//     if (trimmedInput === "") {
+      //     if (trimmedInput === "") {
       setError("Please enter a valid task");
       return;
     }
@@ -32,10 +32,6 @@ const TodoApp = () => {
       setInput("");
       setError("");
     }
-
-
-
-
 
     const newTodo = {
       id: Date.now(),
@@ -75,39 +71,39 @@ const TodoApp = () => {
 
   return (
     <>
-    <div className="min-h-screen p-8">
-      <div className="bg-white rounded-xl md:w-6/12 mx-auto py-6 shadow-2xl">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          To-Do List App
-        </h1>
+      <div className="min-h-screen p-8">
+        <div className="bg-white rounded-xl md:w-6/12 mx-auto py-6 shadow-2xl">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+            To-Do List App
+          </h1>
 
-        <div className="flex items-center justify-center gap-2 px-6">
-          <input
-            type="text"
-            value={input}
-            placeholder="Write something..."
-            className="w-full p-3 border border-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% rounded-lg focus:outline-none focus:border-blue-500"
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleTodo()}
-            required
-          />
-          <button
-            onClick={handleTodo}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 outline-none rounded-lg font-semibold transition duration-150 text-nowrap"
-          >
-            Add Task
-          </button>
+          <div className="flex items-center justify-center gap-2 px-6">
+            <input
+              type="text"
+              value={input}
+              placeholder="Write something..."
+              className="w-full p-3 border border-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% rounded-lg focus:outline-none focus:border-blue-500"
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleTodo()}
+              required
+            />
+            <button
+              onClick={handleTodo}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 outline-none rounded-lg font-semibold transition duration-150 text-nowrap"
+            >
+              Add Task
+            </button>
+          </div>
         </div>
-      </div>
 
-      <TodoList
-        todos={todos}
-        deleteTodo={deleteTodo}
-        toggleComplete={toggleComplete}
-        editTodo={editTodo}
-      />
-    </div>
-    <TodolistItemApp/>
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          toggleComplete={toggleComplete}
+          editTodo={editTodo}
+        />
+      </div>
+      <TodolistItemApp />
     </>
   );
 };
