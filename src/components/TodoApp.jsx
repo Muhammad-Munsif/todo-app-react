@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
 import { toast } from "react-toastify";
-
+import TodolistItemApp from "./TodolistItemApp";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
@@ -10,26 +10,26 @@ const TodoApp = () => {
   const handleTodo = () => {
     const inputField = input.trim();
 
-    if(inputField === ""){
+    if (inputField === "") {
       toast.warning("Please inter a valid task", {
-        autoClose : 2000,
-        position: 'top-right'
+        autoClose: 2000,
+        position: "top-right",
       });
-      
+
       return;
     }
 
     const duplicateName = todos.some(
-      (todo) => todo.text.toLowerCase() === inputField.toLowerCase() 
+      (todo) => todo.text.toLowerCase() === inputField.toLowerCase()
     );
 
-    if(duplicateName){
-    toast.error(`"${inputField}" is already in the list`,{
-      position : "top-center",
-      autoClose : 2000,
-    });
-    setInput('')
-    return;
+    if (duplicateName) {
+      toast.error(`"${inputField}" is already in the list`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
+      setInput("");
+      return;
     }
 
     // Create new todo object
@@ -47,9 +47,7 @@ const TodoApp = () => {
 
   const editTodo = (id, newText) => {
     setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, text: newText } : todo
-      )
+      todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo))
     );
     toast.info("Task updated successfully!", { autoClose: 2000 });
   };
@@ -63,13 +61,14 @@ const TodoApp = () => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    )
-  );
-  toast.warning("Status toggled!", { autoClose: 2000 });
-};
+      )
+    );
+    toast.warning("Status toggled!", { autoClose: 2000 });
+  };
 
   return (
     <>
+      <TodolistItemApp />
       <div className="min-h-screen p-8">
         <div className="bg-white rounded-xl md:w-6/12 mx-auto py-6 shadow-2xl animate__animated animate__fadeInDown">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">

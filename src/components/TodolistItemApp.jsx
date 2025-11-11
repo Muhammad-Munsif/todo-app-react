@@ -6,22 +6,22 @@ const TodolistItemApp = () => {
   const [error, setError] = useState("");
 
   const addTodo = () => {
-    const trimmedInput = input.trim();
+    const inputField = input.trim();
 
-    if (trimmedInput === "") {
+    if (inputField === "") {
       setError("Please enter a valid task");
       return;
     }
 
     // Check for duplicate (case-insensitive)
     const isDuplicate = todos.some(
-      (todo) => todo.toLowerCase() === trimmedInput.toLowerCase()
+      (todo) => todo.toLowerCase() === inputField.toLowerCase()
     );
 
     if (isDuplicate) {
-      setError(`"${trimmedInput}" is already in the list`);
+      setError(`"${inputField}" is already in the list`);
     } else {
-      setTodos([...todos, trimmedInput]);
+      setTodos([...todos, inputField]);
       setInput("");
       setError("");
     }
