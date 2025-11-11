@@ -44,36 +44,40 @@ const TodoApp = () => {
     toast.success("Item added successfully", { autoClose: 2000 });
   };
 
-
   const editTodo = (id, newText) => {
-    const newTextItem = newText.trim()
+    const newTextItem = newText.trim();
 
-    if(newTextItem === ''){
-      toast.warning('Please enter a valid task' ,{
-        position : 'top-right',
-        autoClose : 2000
+    if (newTextItem === "") {
+      toast.warning("Please enter a valid task", {
+        position: "top-right",
+        autoClose: 2000,
       });
-setInput('')
       return;
     }
 
-      const duplicateName = todos.some(
-        (todo) =>todo.id !==id && todo.text.toLowerCase() === newTextItem.toLowerCase()
-      );
-
-      if(duplicateName){
-        toast.error(`"${newTextItem}" is already in the list, because you can't update it again.`, {
-          position:'top-right',
-          autoClose : 2000,
-        });
-        setInput('')
-        return;
-      }
-      
-    setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, text: newTextItem } : todo))
+    const duplicateName = todos.some(
+      (todo) =>
+        todo.id !== id && todo.text.toLowerCase() === newTextItem.toLowerCase()
     );
-    setInput('')
+
+    if (duplicateName) {
+      toast.error(
+        `"${newTextItem}" is already in the list, because you can't update it again.`,
+        {
+          position: "top-right",
+          autoClose: 2000,
+        }
+      );
+    
+      return;
+    }
+
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, text: newTextItem } : todo
+      )
+    );
+
     toast.info("Task updated successfully!", { autoClose: 2000 });
   };
 

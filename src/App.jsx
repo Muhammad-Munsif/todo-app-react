@@ -1,5 +1,5 @@
 import React from "react";
-import 'animate.css';
+import "animate.css";
 
 import TodoApp from "./components/TodoApp";
 import { ToastContainer } from "react-toastify";
