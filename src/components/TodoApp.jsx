@@ -23,8 +23,8 @@ const TodoApp = () => {
     );
 
     if (duplicateName) {
-      toast.error(`"${inputField}" is already in the card list`, {
-        position: "",
+      toast.error("This task with this name is already exist", {
+        position: "top-right",
         autoClose: 2000,
       });
       setInput("");
@@ -55,14 +55,14 @@ const TodoApp = () => {
       return;
     }
 
-    const duplicateName = todos.some(
+    const isDuplicate = todos.some(
       (todo) =>
-        todo.id !== id && todo.text.toLowerCase() === newTextItem.toLowerCase()
+         todo.text.toLowerCase() === newTextItem.toLowerCase()
     );
 
-    if (duplicateName) {
+    if (isDuplicate){
       toast.error(
-        `"${newTextItem}" is already in the list, because you can't update it again.`,
+        "This task with this name is already exist, because you can't update it again.",
         {
           position: "top-right",
           autoClose: 2000,
