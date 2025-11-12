@@ -23,10 +23,13 @@ const TodoApp = () => {
     );
 
     if (duplicateName) {
-      toast.error("This task with this name is already exist", {
-        position: "top-right",
-        autoClose: 2000,
-      });
+      toast.error(
+        "This task with this name is already exist in the card list.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+        }
+      );
       setInput("");
       return;
     }
@@ -56,19 +59,18 @@ const TodoApp = () => {
     }
 
     const isDuplicate = todos.some(
-      (todo) =>
-         todo.text.toLowerCase() === newTextItem.toLowerCase()
+      (todo) => todo.text.toLowerCase() === newTextItem.toLowerCase()
     );
 
-    if (isDuplicate){
+    if (isDuplicate) {
       toast.error(
-        "This task with this name is already exist, because you can't update it again.",
+        "This task with this name is already exist, because you can't update it again. If you wants then add a new task",
         {
           position: "top-right",
           autoClose: 2000,
         }
       );
-    
+
       return;
     }
 
